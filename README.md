@@ -18,12 +18,11 @@ markdown file.
 
 Steps of my Function:
 1. Determine how large my function is in terms of powers of two. Constant Time operation
-2. Increment $x$ by powers of two $log_2(n)$ times, running step 3 for each power of x
-3. Step through the array by x to select segemnts to run step 4 on. $log_x(n)$
+2. In the two outer for loops, it breaks the elements into sections, and then processes each section, during which each individual element is processed $log_{2}n$ times in the following steps. $log_{2}n$ is therefore overall complexity of those two outer loops.
 4. Step through each element of the array in order of least to greatest, running step 5 up to $n$ times.
 5. Store the found smallest element in a temporary variable, shuffle all larger elements to the right, then place smallest element at the end of the sorted section of the array. Up to $n$ elements must be sorted this way.
 
-In total, this gives a runtime complexity of $T\left(n\right) = n^2log(n)^2$ in the worst case. This is much worse than the theoretical $nlog(n)$ of mergesort that is easy to implement recursively. I might be able to condense the outermost 2 loops into one, which would be some order of $log(n)$, but I'm not sure how the two inner loops could be combined.
+In total, this gives a runtime complexity of $T\left(n\right) = n^2log(n)$ in the worst case. This is much worse than the theoretical $nlog(n)$ of mergesort that is easy to implement recursively. The difference of a factor of $n$ from the theoretical complexity of mergesort comes from keeping this in-place. Using a stack of variable memory would bring it down to the theoretical complexity of $\Theta\left(nlogn\right)$
 
 
 ## References
